@@ -11,7 +11,6 @@
 # **************************************************************************** #
 
 NAME	=	libft.a
-NAMEB	=	libftb.a
 HEADER	=	libft.h
 CC		=	cc
 CFLAGS	=	-Wall -Wextra -Werror -I.
