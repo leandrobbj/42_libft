@@ -6,19 +6,19 @@
 /*   By: lbraga <lbraga@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 22:50:11 by lbraga            #+#    #+#             */
-/*   Updated: 2025/09/26 14:09:11 by lbraga           ###   ########.fr       */
+/*   Updated: 2025/10/22 21:29:46 by lbraga           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	cntwrd(char const *s, char c);
-static size_t	cpywrds(char const *s, char **words, char c);
+static int	cntwrd(char const *s, char c);
+static int	cpywrds(char const *s, char **words, char c);
 
 char	**ft_split(char const *s, char c)
 {
-	size_t	w;
-	size_t	count;
+	int		w;
+	int		count;
 	char	**words;
 
 	count = cntwrd(s, c);
@@ -26,7 +26,7 @@ char	**ft_split(char const *s, char c)
 	if (!words)
 		return (NULL);
 	w = cpywrds(s, words, c);
-	if (w != (size_t) -1)
+	if (w != -1)
 	{
 		while (w--)
 			free(words[w]);
@@ -37,9 +37,9 @@ char	**ft_split(char const *s, char c)
 	return (words);
 }
 
-static size_t	cntwrd(char const *s, char c)
+static int	cntwrd(char const *s, char c)
 {
-	size_t	count;
+	int	count;
 
 	count = 0;
 	while (*s)
@@ -54,9 +54,9 @@ static size_t	cntwrd(char const *s, char c)
 	return (count);
 }
 
-static size_t	cpywrds(char const *s, char **words, char c)
+static int	cpywrds(char const *s, char **words, char c)
 {
-	size_t	w;
+	int		w;
 	size_t	end;
 	size_t	sta;
 
@@ -77,7 +77,7 @@ static size_t	cpywrds(char const *s, char **words, char c)
 			w++;
 		}
 	}
-	return ((size_t) -1);
+	return (-1);
 }
 
-//return ((size_t) -1) means success 
+//return (-1) means success 
